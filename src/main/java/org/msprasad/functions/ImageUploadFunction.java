@@ -19,17 +19,17 @@ import java.util.UUID;
 /**
  * Azure Functions with HTTP Trigger.
  */
-public class HttpTriggerFunction {
+public class ImageUploadFunction {
     /**
      * This function listens at endpoint "/api/HttpTrigger-Java". Two ways to invoke it using "curl" command in bash:
      * 1. curl -d "HTTP Body" {your host}/api/HttpTrigger-Java
      * 2. curl {your host}/api/HttpTrigger-Java?name=HTTP%20Query
      */
-    public static final String storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=storagedesign;AccountKey=+etJhqc147p6rr7pgm7AALp6qnoKwJ03yuE0y/zjaq6RD01sRR8SHSWVkIPaQ1u88+gZ8g60t5iHgwjpvbUtug==;EndpointSuffix=core.windows.netDefaultEndpointsProtocol=https;AccountName=storagedesign;AccountKey=+etJhqc147p6rr7pgm7AALp6qnoKwJ03yuE0y/zjaq6RD01sRR8SHSWVkIPaQ1u88+gZ8g60t5iHgwjpvbUtug==;EndpointSuffix=core.windows.net";
+    public static final String storageConnectionString = "connection string";
 
-    @FunctionName("httpTrigger")
+    @FunctionName("upload-image")
     public HttpResponseMessage run(
-            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, route = "httpTrigger", authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<ImageFile>> request,
+            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, route = "upload-image", authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<ImageFile>> request,
             final ExecutionContext context) throws URISyntaxException, StorageException {
         context.getLogger().info("Java HTTP trigger processed a request.");
 

@@ -17,9 +17,9 @@ public class HttpTriggerFunction2 {
      * 1. curl -d "HTTP Body" {your host}/api/HttpTrigger-Java
      * 2. curl {your host}/api/HttpTrigger-Java?name=HTTP%20Query
      */
-    @FunctionName("httpTrigger2")
+    @FunctionName("get-image")
     public HttpResponseMessage run(
-            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, route = "httpTrigger2/{id}/{name=EMPTY}", authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<ToDoItem>> request,
+            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, route = "get-image/{id}/{name=EMPTY}", authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<ToDoItem>> request,
             @BindingName("id") String id,
             @BindingName("name") String name,
             final ExecutionContext context) {
